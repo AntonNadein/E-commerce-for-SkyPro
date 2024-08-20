@@ -1,12 +1,13 @@
-import os
 import json
+import os
 
 from src.category import Category
 from src.product import Product
 
 
 def open_json(file: str) -> dict:
-    with open(os.path.abspath(file), "r", encoding="UTF-8") as f:
+    path = os.path.abspath(file)
+    with open(path, "r", encoding="UTF-8") as f:
         return json.load(f)
 
 

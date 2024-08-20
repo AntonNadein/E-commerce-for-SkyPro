@@ -1,5 +1,6 @@
 from src.category import Category
 from src.product import Product
+from src.utils import category_to_list, open_json
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -47,3 +48,7 @@ if __name__ == "__main__":
 
     print(Category.category_count)
     print(Category.product_count)
+
+    file = open_json("..\\e-commerce-for-skypro\\data\\products.json")
+    category3 = category_to_list(file)
+    print(category3)
