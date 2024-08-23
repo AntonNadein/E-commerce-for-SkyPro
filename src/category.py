@@ -28,13 +28,5 @@ class Category:
 
     def add_product(self, new_product: Product):
         """Добавление приватного атрибута products"""
-        for product in self.__products:
-            if product.name == new_product.name:
-                product.quantity += new_product.quantity
-                if product.price < new_product.price:
-                    product.price = new_product.price
-                return
-            else:
-                self.__products.append(new_product)
-                Category.product_count += 1
-                return self.__products
+        self.__products.append(new_product)
+        Category.product_count += 1
