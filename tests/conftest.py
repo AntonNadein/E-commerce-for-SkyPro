@@ -11,7 +11,9 @@ def test_product_data():
 
 @pytest.fixture()
 def test_category_data():
-    return Category("test_category", "test_description", ["product_1", "product_2"])
+    product_1 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 15)
+    product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 44)
+    return Category("test_category", "test_description", [product_1, product_2])
 
 
 @pytest.fixture()
