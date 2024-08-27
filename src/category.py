@@ -20,7 +20,10 @@ class Category:
 
     def __str__(self):
         """Вывод информации для пользователлей"""
-        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+        count_quantity = 0
+        for i in self.__products:
+            count_quantity += i.quantity
+        return f"{self.name}, количество продуктов: {count_quantity} шт."
 
     @property
     def products(self):

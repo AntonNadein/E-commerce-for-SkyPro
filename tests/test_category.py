@@ -3,7 +3,7 @@ from src.product import Product
 
 
 def test_str_category(test_category_data):
-    assert str(test_category_data) == "test_category, количество продуктов: 2 шт."
+    assert str(test_category_data) == "test_category, количество продуктов: 59 шт."
 
 
 def test_category(test_category_data, test_second_category_data):
