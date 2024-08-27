@@ -38,3 +38,13 @@ def test_category_to_list_data():
             ],
         }
     ]
+
+
+@pytest.fixture()
+def test_product_1_add():
+    return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 15)
+
+
+@pytest.fixture()
+def test_product_2_add():
+    return Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 44)

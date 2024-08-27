@@ -44,3 +44,11 @@ class TestTripleQuestion(unittest.TestCase):
         test_products = Product("test", "test_description", 50.50, 5)
         test_products.price = 50
         assert test_products.price == 50.50
+
+
+def test_str_product(test_product_data):
+    assert str(test_product_data) == "test, 50.5руб. Остаток: 5шт."
+
+
+def test_add_product(test_product_1_add, test_product_2_add):
+    assert test_product_1_add + test_product_2_add == 2137000.0

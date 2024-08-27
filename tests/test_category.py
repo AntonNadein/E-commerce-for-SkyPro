@@ -2,11 +2,15 @@ from src.category import Category
 from src.product import Product
 
 
+def test_str_category(test_category_data):
+    assert str(test_category_data) == "test_category, количество продуктов: 2 шт."
+
+
 def test_category(test_category_data, test_second_category_data):
     assert test_category_data.name == "test_category"
     assert test_category_data.description == "test_description"
-    assert Category.product_count == 2
-    assert Category.category_count == 2
+    assert Category.product_count == 4
+    assert Category.category_count == 3
 
 
 def test_products_property(test_category_data):

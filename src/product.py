@@ -13,6 +13,12 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.__price}руб. Остаток: {self.quantity}шт."
+
+    def __add__(self, other):
+        return self.__price * self.quantity + other.__price * other.quantity
+
     @classmethod
     def new_product(cls, product_dict: dict):
         """Добавление нового продукта через класс-метод"""
@@ -38,3 +44,14 @@ class Product:
                 self.__price = value
         else:
             self.__price = value
+
+
+# product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 1)
+# product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 2)
+# product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+#
+# print(product1)
+# print(product2)
+# print(product3)
+#
+# print(product1+product2)
