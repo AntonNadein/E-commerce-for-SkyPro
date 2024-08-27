@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.category_iterator import CategoryIterator
 from src.product import Product
 
 
@@ -48,3 +49,11 @@ def test_product_1_add():
 @pytest.fixture()
 def test_product_2_add():
     return Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 44)
+
+
+@pytest.fixture()
+def test_category_iterator_data():
+    product_1 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 15)
+    product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 44)
+    category = Category("test_category", "test_description", [product_1, product_2])
+    return CategoryIterator(category)

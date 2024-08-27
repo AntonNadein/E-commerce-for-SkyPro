@@ -27,3 +27,7 @@ def test_add_product(test_category_data):
         "Xiaomi Redmi Note 12, 38000.0руб. Остаток: 44шт.\n"
         "Xiaomi Redmi Note 11, 30000.0руб. Остаток: 14шт.\n"
     )
+
+
+def test_products_list(test_category_data):
+    assert test_category_data.products_list[0].name == "Xiaomi Redmi Note 11"
