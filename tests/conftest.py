@@ -60,6 +60,7 @@ def test_category_iterator_data():
     category = Category("test_category", "test_description", [product_1, product_2])
     return CategoryIterator(category)
 
+
 @pytest.fixture()
 def test_product_lawn_grass_1():
     return LawnGrass("Газон", "Полевая трава", 250, 20, "Россия", "5 дней", "зеленый")

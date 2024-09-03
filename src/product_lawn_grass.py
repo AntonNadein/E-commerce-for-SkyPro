@@ -2,6 +2,8 @@ from src.product import Product
 
 
 class LawnGrass(Product):
+    """Подкласс продукта «Трава газонная»"""
+
     country: str
     germination_period: str
     color: str
@@ -22,6 +24,7 @@ class LawnGrass(Product):
         self.color = color
 
     def __add__(self, other):
+        """Сложение товаров только из одиного класса продукта"""
         if type(other) is LawnGrass:
             return self.price + other.price
         else:

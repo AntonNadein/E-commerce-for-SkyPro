@@ -2,6 +2,8 @@ from src.product import Product
 
 
 class Smartphone(Product):
+    """Подкласс продукта «Смартфон»"""
+
     efficiency: float
     model: str
     memory: int
@@ -25,6 +27,7 @@ class Smartphone(Product):
         self.color = color
 
     def __add__(self, other):
+        """Сложение товаров только из одиного класса продукта"""
         if type(other) is Smartphone:
             return self.price + other.price
         else:

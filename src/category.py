@@ -10,7 +10,7 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products=None):
+    def __init__(self, name: str, description: str, products: list = None) -> None:
         """Инициализация характеристик категорий продукта."""
         self.name = name
         self.description = description
@@ -35,8 +35,11 @@ class Category:
 
     def add_product(self, new_product: Product):
         """Добавление приватного атрибута products"""
-        self.__products.append(new_product)
-        Category.product_count += 1
+        if isinstance(new_product, Product):
+            self.__products.append(new_product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products_list(self):
