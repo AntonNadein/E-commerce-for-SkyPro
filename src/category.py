@@ -18,15 +18,27 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        """Вывод информации для пользователлей"""
+        count_quantity = 0
+        for i in self.__products:
+            count_quantity += i.quantity
+        return f"{self.name}, количество продуктов: {count_quantity} шт."
+
     @property
     def products(self):
         """Вывод приватного атрибута products"""
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.price}руб. Остаток: {product.quantity}шт.\n"
+            product_str += f"{str(product)}\n"
         return product_str
 
     def add_product(self, new_product: Product):
         """Добавление приватного атрибута products"""
         self.__products.append(new_product)
         Category.product_count += 1
+
+    @property
+    def products_list(self):
+        """Вывод всего списка products"""
+        return self.__products
