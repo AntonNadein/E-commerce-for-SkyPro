@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
 
@@ -31,3 +33,8 @@ def test_add_product(test_category_data):
 
 def test_products_list(test_category_data):
     assert test_category_data.products_list[0].name == "Xiaomi Redmi Note 11"
+
+
+def test_add_product_error(test_category_data):
+    with pytest.raises(TypeError):
+        test_category_data.add_product("Not a product")

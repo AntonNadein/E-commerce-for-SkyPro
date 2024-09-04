@@ -3,6 +3,8 @@ import pytest
 from src.category import Category
 from src.category_iterator import CategoryIterator
 from src.product import Product
+from src.product_lawn_grass import LawnGrass
+from src.product_smartphone import Smartphone
 
 
 @pytest.fixture()
@@ -57,3 +59,23 @@ def test_category_iterator_data():
     product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 44)
     category = Category("test_category", "test_description", [product_1, product_2])
     return CategoryIterator(category)
+
+
+@pytest.fixture()
+def test_product_lawn_grass_1():
+    return LawnGrass("Газон", "Полевая трава", 250, 20, "Россия", "5 дней", "зеленый")
+
+
+@pytest.fixture()
+def test_product_lawn_grass_2():
+    return LawnGrass("Газон", "Полевая трава", 270, 20, "Россия", "7 дней", "зеленый")
+
+
+@pytest.fixture()
+def test_product_smartphone_1():
+    return Smartphone("Redmi", "Смартфон Redmi", 25000, 20, 23.3, "Note 7", 60, "черный")
+
+
+@pytest.fixture()
+def test_product_smartphone_2():
+    return Smartphone("Redmi", "Смартфон Redmi", 33000, 10, 55.6, "Note 8", 120, "черный")
