@@ -3,6 +3,7 @@ from src.product import Product
 
 
 class Order(BaseCategory, Product):
+    """Класс выводящий информацию о заказе"""
 
     def __init__(self, name: str, price: float, quantity: int, description=None) -> None:
         super().__init__(name, description, price, quantity)
