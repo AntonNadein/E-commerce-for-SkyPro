@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для представления продукта."""
 
     name: str
@@ -12,6 +16,8 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
+        # super().__init__()
 
     def __str__(self):
         """Вывод информации для пользователлей"""
@@ -47,3 +53,11 @@ class Product:
                 self.__price = value
         else:
             self.__price = value
+
+
+# if __name__ == "__main__":
+#     smart_1 = Product("Redmi", "Смартфон Redmi", 250, 20)
+#     print(smart_1.name)
+#     print(smart_1.description)
+#     print(smart_1.price)
+#     print(smart_1.quantity)
