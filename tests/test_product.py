@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from src.product import Product
 
 
@@ -52,3 +54,8 @@ def test_str_product(test_product_data):
 
 def test_add_product(test_product_1_add, test_product_2_add):
     assert test_product_1_add + test_product_2_add == 2137000.0
+
+
+def test_product_quantity_0(capsys):
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product("Redmi", "Смартфон Redmi", 250, 0)

@@ -38,3 +38,13 @@ def test_products_list(test_category_data):
 def test_add_product_error(test_category_data):
     with pytest.raises(TypeError):
         test_category_data.add_product("Not a product")
+
+
+def test_get_average_price_product(test_category_data):
+    result = test_category_data.middle_price()
+    assert result == 34500.0
+
+
+def test_get_average_price_product_div_0(test_category_data):
+    result = Category("test_category", "test_description", [])
+    assert result.middle_price() == 0

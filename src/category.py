@@ -42,7 +42,20 @@ class Category(BaseCategory):
         else:
             raise TypeError
 
+    def middle_price(self):
+        try:
+            return sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
+
     @property
     def products_list(self):
         """Вывод всего списка products"""
         return self.__products
+
+
+# if __name__ == "__main__":
+#     product_1 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 30000.0, 10)
+#     product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 10)
+#     category = Category("test_category", "test_description", [product_1, product_2])
+#     print(category.middle_price())
