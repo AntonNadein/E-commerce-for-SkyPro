@@ -56,6 +56,6 @@ def test_add_product(test_product_1_add, test_product_2_add):
     assert test_product_1_add + test_product_2_add == 2137000.0
 
 
-def test_product_quantity_0(capsys):
+def test_product_quantity_0():
     with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
         Product("Redmi", "Смартфон Redmi", 250, 0)

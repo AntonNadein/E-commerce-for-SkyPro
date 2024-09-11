@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.exceptions import ZeroQuantityProduct
 from src.product import Product
 
 
@@ -48,3 +49,26 @@ def test_get_average_price_product(test_category_data):
 def test_get_average_price_product_div_0(test_category_data):
     result = Category("test_category", "test_description", [])
     assert result.middle_price() == 0
+
+
+def test_category_product_quantity_0(capsys):
+    product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 10)
+    category = Category("test_category", "test_description", [product_2])
+    product_3 = Product("Xiaomi Redmi Note 13", "1024GB, Синий", 38000.0, 5)
+    product_3.quantity = 0
+    category.add_product(product_3)
+    result = capsys.readouterr()
+    assert str(result.out.split("\n")[-2]) == "Обработка добавления товара завершена"
+    assert str(result.out.split("\n")[-3]) == "Передан пустой список"
+
+
+def test_category_product_quantity(capsys):
+    Category.product_count = 0
+    product_2 = Product("Xiaomi Redmi Note 12", "1024GB, Синий", 38000.0, 10)
+    category = Category("test_category", "test_description", [product_2])
+    product_3 = Product("Xiaomi Redmi Note 13", "1024GB, Синий", 38000.0, 5)
+    category.add_product(product_3)
+    result = capsys.readouterr()
+    assert str(result.out.split("\n")[-2]) == "Обработка добавления товара завершена"
+    assert str(result.out.split("\n")[-3]) == "Товар добавлен"
+    assert Category.product_count == 2
